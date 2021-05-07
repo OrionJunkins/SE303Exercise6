@@ -4,7 +4,18 @@ def draw_button(label_text, x, y, foreground_color, is_dark_mode)
   button.draw()
 end
 
+class Color
+  attr_accessor :color_hex_code
+
+  def initialize(color_hex_code)
+    @color_hex_code = color_hex_code
+  end
+end
+
 class Button
+  @@dark_mode_default_color = Color.new('#111111')
+  @@light_mode_default_color = Color.new('#E0E0E0')
+
   def initialize(label_text, x, y, foreground_color, is_dark_mode=false)
     @label_text = label_text 
     @x = x 
@@ -23,9 +34,9 @@ class Button
 
   def button_color
     if is_dark_mode
-      '#111111'
+      dark_mode_default_color.color_hex_code
     else
-      '#E0E0E0'
+      light_mode_default_color.color_hex_code
     end
   end
 
@@ -43,3 +54,4 @@ end
   # Data Clumps -> Extract class
   # Feature Envy -> Move Function
   # Comments -> Extract Function
+  # Primitive obsession -> Extract Class
