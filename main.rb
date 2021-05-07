@@ -1,11 +1,6 @@
 def draw_button(button, foreground_color, is_dark_mode)
-  if is_dark_mode
-    # darken foreground color for dark mode
-    paint(button.label_text, button.x, button.y, foreground_color - 10, '#111111')
-  else
-    # lighten foreground color for non-dark mode
-    paint(button.label_text, button.x, button.y, foreground_color + 10, '#E0E0E0')
-  end
+  print("Warning: depricated function, use button.draw")
+  button.draw(foreground_color, is_dark_mode)
 end
 
 class button
@@ -15,6 +10,17 @@ class button
     @x = x 
     @y = y
   end
+
+  def draw(foreground_color, is_dark_mode)
+    if is_dark_mode
+      # darken foreground color for dark mode
+      paint(label_text, x, y, foreground_color - 10, '#111111')
+    else
+      # lighten foreground color for non-dark mode
+      paint(label_text, x, y, foreground_color + 10, '#E0E0E0')
+    end
+  end
+  
 end
 
 
@@ -23,3 +29,4 @@ end
 
 # Smell -> Refactoring
   # Data Clumps -> Extract class
+  # Feature Envy -> Move Function
