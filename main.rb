@@ -4,23 +4,36 @@ def draw_button(button, foreground_color, is_dark_mode)
 end
 
 class button
-  attr_reader :label_text, :x, :y
-  def initialize(label_text, x, y)
+  def initialize(label_text, x, y, foreground_color, is_dark_mode=false)
     @label_text = label_text 
     @x = x 
     @y = y
+    @foreground_color
+    @is_dark_mode = is_dark_mode
   end
 
-  def draw(foreground_color, is_dark_mode)
+  def foreground_color
     if is_dark_mode
-      # darken foreground color for dark mode
-      paint(label_text, x, y, foreground_color - 10, '#111111')
+      color - 10
     else
-      # lighten foreground color for non-dark mode
-      paint(label_text, x, y, foreground_color + 10, '#E0E0E0')
+      color + 10
     end
   end
+
+  button_color
+    if is_dark_mode
+      '#111111'
+    else
+      '#E0E0E0'
+    end
+  end
+
+  end
   
+  def draw(foreground_color, is_dark_mode)
+    paint(label_text, x, y, foreground_color, button_color)
+  end
+
 end
 
 
@@ -30,3 +43,4 @@ end
 # Smell -> Refactoring
   # Data Clumps -> Extract class
   # Feature Envy -> Move Function
+  # Comments -> Extract Function
