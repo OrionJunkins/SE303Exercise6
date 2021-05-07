@@ -15,9 +15,9 @@ class Button
 
   def foreground_color
     if is_dark_mode
-      color - 10
+      foreground_color - 10
     else
-      color + 10
+      foreground_color + 10
     end
   end
 
