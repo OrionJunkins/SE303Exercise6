@@ -21,7 +21,7 @@ class Button
     end
   end
 
-  button_color
+  def button_color
     if is_dark_mode
       '#111111'
     else
@@ -29,9 +29,7 @@ class Button
     end
   end
 
-  end
-
-  def draw(foreground_color, is_dark_mode)
+  def draw()
     paint(label_text, x, y, foreground_color, button_color)
   end
 
