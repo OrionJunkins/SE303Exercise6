@@ -46,8 +46,15 @@ class Color
   end
 end
 
-# Smell -> Refactoring
-  # Data Clumps -> Extract class
-  # Feature Envy -> Move Function
-  # Comments -> Extract Function
-  # Primitive obsession -> Extract Class
+
+
+# Questions:
+#   1) Smell -> Refactoring listed in order applied
+#     Data Clumps -> Extract class
+#     Feature Envy -> Move Function
+#     Comments -> Extract Function
+#     Primitive obsession -> Extract Class
+
+#   2) I chose to address the most obvious smells first that had the clearest refactorings. 
+#      As I dealt with each refactoring, the next smell generally presented itself as each change made the next problem more obvious.
+#      I did not identify all smells up front, rather I looked for one at a time and focused on each until addressed.
